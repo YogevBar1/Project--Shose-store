@@ -1,0 +1,9 @@
+
+
+.Users > table , .Users th, .Users td {
+    margin: auto;
+    border: 1px solid;
+    border-collapse: collapse;
+	
+}
+
