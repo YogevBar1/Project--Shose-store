@@ -7,6 +7,9 @@ import AboutUs from "../AboutUsArea/AboutUs/AboutUs";
 import Page404 from "../LayoutArea/Page404/Page404";
 import EmployeeList from "../EmployeeListArea/EmployeeList/EmployeeList";
 import Users from "../UsersArea/Users/Users";
+import EmployeeDetails from "../EmployeeListArea/EmployeeDetails/EmployeeDetails";
+import AddEmployee from "../EmployeesArea/AddEmployee/AddEmployee";
+import EditEmployee from "../EmployeesArea/EditEmployee/EditEmployee";
 
 function Routing(): JSX.Element {
     return (
@@ -26,11 +29,23 @@ function Routing(): JSX.Element {
                 {/*About us Route: */}
                 <Route path="/aboutUs" element={<AboutUs />} />
 
-                 {/*Employees Route: */}
-                 <Route path="/employees" element={<EmployeeList />} />
+                {/*Employees Route: */}
+                <Route path="/employees" element={<EmployeeList />} />
 
-                  {/*Users Route: */}
-                  <Route path="/users" element={<Users />} />
+                {/*Employees Details: */}
+                <Route path="/employees/details/:employeeId" element={<EmployeeDetails />} />
+
+
+                {/*Add Employee */}
+                <Route path="/employees/AddEmployee" element={<AddEmployee />} />
+
+                {/*Edit Employee */}
+                <Route path="/employees/edit/:employeeId" element={<EditEmployee />} />
+
+                {/*Users Route: */}
+                <Route path="/users" element={<Users />} />
+
+
 
 
 
@@ -39,7 +54,7 @@ function Routing(): JSX.Element {
                 <Route path="/" element={<Navigate to="/home" />} />
 
                 {/* Page not found */}
-                <Route path="*" element={<Page404 />}/>
+                <Route path="*" element={<Page404 />} />
 
             </Routes>
 

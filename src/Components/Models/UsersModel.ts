@@ -4,6 +4,7 @@ class UserModel{
     public email: string;
     public phone: string;
     public city: string;
+    public id: number;
 
     address: {
         city: string;

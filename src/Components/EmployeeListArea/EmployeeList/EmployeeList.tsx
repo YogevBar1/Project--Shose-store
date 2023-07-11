@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./EmployeeList.css";
 import EmployeesModel from "../../Models/EmployeesModel";
 import employeesListService from "../../Services/EmployeesListService";
+import { NavLink } from "react-router-dom";
 
 
 
@@ -27,6 +28,9 @@ function EmployeeList(): JSX.Element {
     return (
         <div className="EmployeeList">
 
+            <NavLink to="/employees/AddEmployee">Add Employee➕</NavLink>
+            <br/><br/>
+
 
             <table>
                 <thead>
@@ -51,8 +55,9 @@ function EmployeeList(): JSX.Element {
                                 <td>{e.city}</td>
                                 <td>{e.birthDate}</td>
                                 <td>
-                                    <img src={"http://localhost:3030/api/employees/images/"+e.imageName}></img>
-
+                                    <NavLink to={"/employees/details/" + e.id}>
+                                        <img src={"http://localhost:3030/api/employees/images/" + e.imageName}></img>
+                                    </NavLink>
                                 </td>
 
                             </tr>

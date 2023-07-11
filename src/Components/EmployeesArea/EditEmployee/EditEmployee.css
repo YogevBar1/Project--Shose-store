@@ -1,0 +1,27 @@
+
+.EditEmployee > form {
+    width: 300px;
+    border: 1px solid;
+    text-align: left;
+    margin: 20px auto;
+    padding: 20px;
+    box-shadow: 10px 10px 10px;
+    border-radius: 10px;
+	
+}
+
+.EditEmployee input, .EditEmployee > button{
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+
+img{
+
+    width: 75px;
+    height: 75px;
+    object-fit: contain;
+    /* This ensures the image scales within the container */
+    margin-left: 175px;
+}

@@ -35,7 +35,7 @@ function Users(): JSX.Element {
                 <tbody>
                     {
                         frontendUsers.map(e =>
-                            <tr>
+                            <tr key={e.id}>
                                 <td>{e.name}</td>
                                 <td>{e.username}</td>
                                 <td>{e.email}</td>
