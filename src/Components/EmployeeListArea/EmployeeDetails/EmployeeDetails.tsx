@@ -3,6 +3,7 @@ import "./EmployeeDetails.css";
 import { useEffect, useState } from "react";
 import EmployeesModel from "../../Models/EmployeesModel";
 import employeesListService from "../../Services/EmployeesListService";
+import notifyService from "../../Services/Notifyservice";
 
 function EmployeeDetails(): JSX.Element {
 
@@ -15,7 +16,7 @@ function EmployeeDetails(): JSX.Element {
     useEffect(() => {
         employeesListService.getOneEmployee(id)
             .then(backendEmployee => setFrontedEmployee(backendEmployee))
-            .catch(err => alert(err.message));
+            .catch(err => notifyService.error(err.message));
 
     }, []);
 
@@ -24,12 +25,12 @@ function EmployeeDetails(): JSX.Element {
             const ok = window.confirm("Are you sure you want to delete the item?");
             if (!ok) return;
             await employeesListService.deleteEmployee(id);
-            alert("Employee deleted successfully");
+            notifyService.success("Employee deleted successfully");
             navigate("/employees");
 
         }
         catch (err: any) {
-            alert(err.message);
+            notifyService.error(err.message);
         }
 
     }

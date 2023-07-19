@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import UsersModel from "../../Models/UsersModel";
 import "./Users.css";
 import usersService from "../../Services/UsersService";
+import notifyService from "../../Services/Notifyservice";
 
 function Users(): JSX.Element {
 
@@ -12,7 +13,7 @@ function Users(): JSX.Element {
         // Get Users
         usersService.getAllUsers().
         then(backendUsers =>setFrontendUsers(backendUsers))
-        .catch(err =>alert(err.message));
+        .catch(err =>notifyService.error(err.message));
 
     })
 

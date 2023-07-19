@@ -5,6 +5,7 @@ import "./EditEmployee.css";
 import employeesListService from "../../Services/EmployeesListService";
 import { useForm } from "react-hook-form";
 import { ChangeEvent, useEffect, useState } from "react";
+import notifyService from "../../Services/Notifyservice";
 
 function EditEmployee(): JSX.Element {
     const { register, handleSubmit, setValue } = useForm<EmployeesModel>();
@@ -38,7 +39,7 @@ function EditEmployee(): JSX.Element {
                 setValue("city", backendEmployee?.city);
                 setValue("birthDate", backendEmployee?.birthDate);
             })
-            .catch((err) => alert(err.message));
+            .catch((err) => notifyService.error(err.message));
     }, [id, setValue]);
 
     async function send(employee: EmployeesModel) {
@@ -52,10 +53,10 @@ function EditEmployee(): JSX.Element {
 
             await employeesListService.editEmployee(employee, currentUrl);
 
-            alert("The employee edited successfully");
+            notifyService.success("The employee edited successfully");
             navigate("/employees");
         } catch (err: any) {
-            alert(err.message);
+            notifyService.error(err.message);
         }
     }
 

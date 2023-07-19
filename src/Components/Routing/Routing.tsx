@@ -10,6 +10,10 @@ import Users from "../UsersArea/Users/Users";
 import EmployeeDetails from "../EmployeeListArea/EmployeeDetails/EmployeeDetails";
 import AddEmployee from "../EmployeesArea/AddEmployee/AddEmployee";
 import EditEmployee from "../EmployeesArea/EditEmployee/EditEmployee";
+import Register from "../AuthArea/Register/Register";
+import Login from "../AuthArea/Login/Login";
+import ShoePics from "../ShoePics/ShoePics";
+import ContactUs from "../ContactUs/ContactUsPage";
 
 function Routing(): JSX.Element {
     return (
@@ -17,11 +21,20 @@ function Routing(): JSX.Element {
 
             <Routes>
 
+                {/* Register */}
+                <Route path="/register" element={<Register />} />
+
+                {/* Login */}
+                <Route path="/login" element={<Login />} />
+
                 {/*Home Route: */}
                 <Route path="/home" element={<Home />} />
 
                 {/*Products Route: */}
                 <Route path="/products" element={<Products />} />
+
+                {/*Shoe pictures Route: */}
+                <Route path="/shoePics" element={<ShoePics />} />
 
                 {/*SuccessStories Route: */}
                 <Route path="/successStories" element={<SuccessStories />} />
@@ -46,6 +59,8 @@ function Routing(): JSX.Element {
                 <Route path="/users" element={<Users />} />
 
 
+                {/*Contact-us Route: */}
+                <Route path="/contactUs" element={<ContactUs />} />
 
 
 

@@ -4,6 +4,7 @@ import EmployeesModel from "../../Models/EmployeesModel";
 import employeesListService from "../../Services/EmployeesListService";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
+import notifyService from "../../Services/Notifyservice";
 
 function AddEmployee(): JSX.Element {
 
@@ -18,13 +19,14 @@ function AddEmployee(): JSX.Element {
             // Convert fileList (containing single file) into a File Type:
             employee.image = (employee.image as unknown as FileList)[0];
             await employeesListService.addEmployee(employee);
-            alert("The employee added successfully");
+            notifyService.success("The employee added successfully");
             navigate("/employees");
 
         }
         catch (err: any) {
-            alert(err.message);
+            notifyService.error(err.message);
         }
+
     }
 
     // Handle image preview

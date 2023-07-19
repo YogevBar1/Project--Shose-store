@@ -3,6 +3,8 @@ import "./Links.css";
 
 
 function Links(): JSX.Element {
+
+    
     return (
         <div className="Links">
 			Menu
@@ -19,6 +21,11 @@ function Links(): JSX.Element {
 
 
             <NavLink to="/employees">Employees</NavLink>
+
+
+            <NavLink to="/shoePics">Shoe pictures</NavLink>
+
+            <NavLink to="/ContactUs">Contact Us</NavLink>
 
 
             

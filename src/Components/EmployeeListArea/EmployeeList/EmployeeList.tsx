@@ -3,6 +3,7 @@ import "./EmployeeList.css";
 import EmployeesModel from "../../Models/EmployeesModel";
 import employeesListService from "../../Services/EmployeesListService";
 import { NavLink } from "react-router-dom";
+import notifyService from "../../Services/Notifyservice";
 
 
 
@@ -20,7 +21,7 @@ function EmployeeList(): JSX.Element {
         // Get Employees
         employeesListService.getAllEmployees()
             .then(backendEmployees => setFrontedList(backendEmployees))
-            .catch(err => alert(err.message));
+            .catch(err => notifyService.error(err.message));
 
 
     }, []);
